@@ -5,21 +5,21 @@ QMK=./qmk.sh
 
 .PHONY: build
 build: link
-		$(QMK) compile -j8 -kb planck/ez/glow -km alex-bue
+	$(QMK) compile -j8 -kb planck/ez/glow -km alex-bue
 
 .PHONY: flash
 flash: link
-		$(QMK) flash -j8 -kb planck/ez/glow -km alex-bue
+	$(QMK) flash -j8 -kb planck/ez/glow -km alex-bue
 
 .PHONY: link
 link: unlink
-		ln -sf "$(realpath keymap)" "${KEYMAP_DIR}"
+	ln -sf "$(realpath keymap)" "${KEYMAP_DIR}"
 
 .PHONY: unlink
 unlink:
-		rm -rf "${KEYMAP_DIR}"
+	rm -rf "${KEYMAP_DIR}"
 
 .PHONY: clean
 clean: unlink
-		$(QMK) clean
+	$(QMK) clean
 
