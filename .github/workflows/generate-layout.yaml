@@ -4,7 +4,6 @@ on:
   push:
     paths:
       - 'keymap/keymap.c'
-      - '.github/workflows/generate-layout.yaml'
 
 jobs:
   generate-layout:
@@ -38,13 +37,19 @@ jobs:
     - name: Generate layout
       run: ./generate_layout.sh
 
-    - name: Commit and push layout
+    - name: Check for changes, commit and push
       run: |
-        git config --global user.name 'github-actions'
-        git config --global user.email 'github-actions@github.com'
-        git add assets/layout.svg
-        git commit -m 'Update layout visualization'
-        git push
+        if git diff --quiet; then
+          echo "No changes detected, nothing to commit."
+          exit 0
+        else
+          git config --global user.name 'github-actions'
+          git config --global user.email 'github-actions@github.com'
+          git add assets/layout.svg
+          git commit -m 'Update layout visualization'
+          git push
+        fi
+
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
