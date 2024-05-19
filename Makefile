@@ -1,4 +1,4 @@
-KEYMAP_DIR=qmk_firmware/keyboards/planck/keymaps/alex-bue
+KEYMAP_DIR=qmk/keyboards/planck/keymaps/alex-bue
 
 # Use qmk through poetry
 QMK=./qmk.sh

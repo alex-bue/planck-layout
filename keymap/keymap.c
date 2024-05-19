@@ -31,7 +31,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     KC_TAB,          KC_Q,     KC_W,     KC_E,     KC_R,   KC_T,     KC_Y,     KC_U,   KC_I,     KC_O,     KC_P,     KC_BSPC,
     LCTL_T(KC_ESC),  KC_A,     KC_S,     KC_D,     KC_F,   KC_G,     KC_H,     KC_J,   KC_K,     KC_L,     KC_SCLN,  KC_QUOT,
     KC_LSFT,         KC_Z,     KC_X,     KC_C,     KC_V,   KC_B,     KC_N,     KC_M,   KC_COMM,  KC_DOT,   KC_SLSH,  SC_SENT,
-    MO(_NAVIGATION), KC_LCTL,  KC_LGUI,  KC_LALT,  LT(_LOWER, KC_BSPC),  LT(_NAVIGATION, KC_SPC),  LT(_NAVIGATION, KC_SPC),  LT(_RAISE, KC_ENTER),  KC_RALT,  KC_RGUI,  KC_RCTL,  MO(_NAVIGATION)
+    MO(_NAVIGATION), KC_LCTL,  KC_LALT, KC_LGUI  ,  LT(_LOWER, KC_BSPC),  LT(_NAVIGATION, KC_SPC),  LT(_NAVIGATION, KC_SPC),  LT(_RAISE, KC_ENTER), KC_RGUI, KC_RALT, KC_RCTL, MO(_NAVIGATION)
 ),
 
 [_LOWER] = LAYOUT_ortho_4x12(
@@ -56,7 +56,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 ),
 
 [_ADJUST] = LAYOUT_ortho_4x12(
-    KC_NO,    KC_NO,    KC_NO,    EE_CLR,   QK_BOOT,  KC_NO,    KC_NO,     KC_NO,    KC_NO,    AG_NORM,  AG_SWAP,  RGB_TOG,
+    KC_NO,    KC_NO,    KC_NO,    EE_CLR,   QK_BOOT,  KC_NO,    KC_NO,     KC_NO,    KC_NO,    KC_NO,    AG_TOGG,  RGB_TOG,
     KC_NO,    KC_NO,    KC_NO,    KC_NO,    KC_NO,    KC_NO,    RGB_RMOD,  RGB_VAD,  RGB_VAI,  RGB_MOD,  KC_NO,    AU_TOGG,
     KC_NO,    CAMP,     IMP,      NOCT,     KC_NO,    KC_NO,    NK_TOGG,   RGB_HUD,  RGB_HUI,  KC_NO,    KC_NO,    KC_NO,
     _______,  _______,  _______,  _______,  _______,  _______,  _______,   _______,  _______,  _______,  _______,  _______
