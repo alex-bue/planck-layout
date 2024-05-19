@@ -4,4 +4,4 @@
 
 REPO_DIR="$(dirname "$(realpath "${BASH_SOURCE[0]}")")"
 
-QMK_HOME="$REPO_DIR/qmk" poetry run qmk "$@"
+QMK_HOME="$REPO_DIR/qmk_firmware" poetry run qmk "$@"
