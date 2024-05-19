@@ -11,5 +11,5 @@ OUTPUT_FILE="assets/layout.svg"
 
 # Convert keymap.c to JSON and pipe it directly to the next command
 ./qmk.sh c2json "$KEYMAP_C" -kb "$KEYBOARD" -km "$KEYMAP" | \
-poetry run keymap -c "$CONFIG_FILE" parse -l $LAYERS -c 12 -q - > keymap.yaml
-poetry run keymap -c "$CONFIG_FILE" draw -o "$OUTPUT_FILE" keymap.yaml
+poetry run keymap -c "$CONFIG_FILE" parse -l $LAYERS -c 12 -q - | \
+poetry run keymap -c "$CONFIG_FILE" draw -o "$OUTPUT_FILE" /dev/stdin
