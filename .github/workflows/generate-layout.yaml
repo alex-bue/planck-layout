@@ -1,0 +1,47 @@
+name: Generate Layout
+
+on:
+  push:
+    paths:
+      - 'keymap/keymap.c'
+      - '.github/workflows/generate-layout.yml'
+
+jobs:
+  generate-layout:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v2
+      with:
+        submodules: recursive  # Ensure all submodules are initialized and updated recursively
+
+    - name: Set up Python
+      uses: actions/setup-python@v2
+      with:
+        python-version: '3.12'
+
+    - name: Set up Node.js
+      uses: actions/setup-node@v2
+      with:
+        node-version: '14'
+
+    - name: Install Poetry
+      run: curl -sSL https://raw.githubusercontent.com/python-poetry/poetry/master/get-poetry.py | python -
+
+    - name: Install Dependencies
+      run: poetry install
+
+    - name: Generate layout
+      run: ./generate_keymap_layout.sh
+
+    - name: Commit and push layout
+      run: |
+        git config --global user.name 'github-actions'
+        git config --global user.email 'github-actions@github.com'
+        git add assets/layout.svg
+        git commit -m 'Update layout visualization'
+        git push
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
