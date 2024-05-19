@@ -36,7 +36,7 @@ jobs:
       run: poetry install
 
     - name: Generate layout
-      run: ./generate_keymap_layout.sh
+      run: ./generate_layout.sh
 
     - name: Commit and push layout
       run: |
