@@ -4,7 +4,7 @@ on:
   push:
     paths:
       - 'keymap/keymap.c'
-      - '.github/workflows/generate-layout.yml'
+      - '.github/workflows/generate-layout.yaml'
 
 jobs:
   generate-layout:
